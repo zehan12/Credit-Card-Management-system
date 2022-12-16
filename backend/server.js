@@ -4,6 +4,7 @@ const createError = require("http-errors");
 const PORT =   process.env.PORT || 8081;
 const mongoose = require("mongoose");
 const cors = require("cors");
+const logger = require("morgan");
 
 
 // the `strictQuery` option will be switched back to `false` by default in Mongoose 7.
@@ -21,8 +22,12 @@ app.use(express.urlencoded({ extended: false }));
 
 app.use(cors());
 
+app.use(logger('dev'));
+
+
 // * Routes * // 
 app.use("/api/users", require("./routes/user") );
+app.use("/api/cards", require("./routes/card"));
 
 app.get('/',(req,res)=>{
     res.send(`<h1>Hello From Backend ( server side )</h1>`);

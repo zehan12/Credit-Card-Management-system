@@ -44,7 +44,7 @@ const empty = (input) => {
 module.exports = {
     isValidEmail,
     isValidCard,
-    isValidMobile,
     empty,
-    validatePassword
+    validatePassword,
+    isValidMobile
 }
